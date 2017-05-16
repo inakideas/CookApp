@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="main-window">
+    </div>
+    <div class="side-nav">
+      <header>
+        <div class="clock">
+        </div>
+      </header>
+      <nav>
+        <ul>
+          <li><button id="log-out"><span class="fa fa-power-off"></span></li>
+          <li><button id="force-update"><span class="fa fa-refresh"></span></li>
+          <li><button id="show-order"><span class="fa fa-address-book"></span></li>
+          <li><button id="show-all-orders"><span class="fa fa-address-book"></span></li>
+          <li><button id="marcar"><span class="fa fa-bullhorn"></span><span class="fa fa-close"></span></li>
+          <li><button id="calendar"><span class="fa fa-calendar"></span></li>
+          <li><button id="show-screens"><span class="fa fa-th"></span></li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/mustache.js"></script>
+  <script src="js/app.js"></script>
+  <!-- Mustache templates -->
+  <script id="screens" type="text/html">
+    <div class="col-lg-6 screen-window" id="codigo{{codigo}}">
+      <header class="screen-header">
+        {{nombre}} <span class="fa fa-expand"></span>
+      </header>
+      <div class="screen-content"
+      </div>
+    </div>
+  </script>
+  <script id="products" type="text/html">
+
+
+      <!-- Platos ptes de producir -->
+      <div class="side-col ptes">
+        <header> Pdt. Producir</header>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Descripcion</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#productos}}
+              {{^Marcado}}
+
+              <tr data-index="{{index}}">
+
+                <td>{{Descripcion}}</td>
+                <td>{{Cantidad}}</td>
+
+              </tr>
+
+              {{/Marcado}}
+            {{/productos}}
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- Platos A marchar -->
+
+      <div class="main-col marchar">
+        <header> A Marchar</header>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Descripcion</th>
+              <th>Cantidad</th>
+              <th>Camarero</th>
+              <th>Mesa</th>
+              <th>Ticket</th>
+              <th>REF</th>
+              <th>Hora</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#productos}}
+              {{#Marcado}}
+              <tr data-index="{{index}}">
+                <td>{{Descripcion}}</td>
+                <td>{{Cantidad}}</td>
+                <td>{{Camarero}}</td>
+                <td>{{Mesa}}</td>
+                <td>{{idTicket}}</td>
+                <td>{{idArticulo}}</td>
+                <td>{{Hora}}</td>
+              </tr>
+              {{/Marcado}}
+            {{/productos}}
+          </tbody>
+        </table>
+      </div>
+    
+  </script>
+  <!-- /mustache templates -->
+</body>
+</html>

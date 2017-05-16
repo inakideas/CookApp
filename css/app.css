@@ -1,0 +1,192 @@
+/*
+ * FrontCocina styles
+ * Electron/Android APP:
+ * Viewport software will be Chrome or Chromium
+ * So we don't provide fallback to moz, o, or ms browsers
+ * We fall for webkit for future iOS migration support
+ */
+
+body{
+  height: 100vh;
+  overflow: hidden;
+}
+
+.flex{
+		display: -webkit-flex;
+		display: flex;
+		-webkit-align-items: center;
+		-webkit-box-align: center;
+		align-items: center;
+		transition: 2s ease;
+		-webkit-transition: 2s ease;
+		height: 100%;
+}
+
+ul{
+  padding: 0px;
+}
+
+/*
+ * Main Window styles
+ */
+
+.main-window{
+  width: 95vw;
+  float: left;
+}
+
+/* Grid */
+
+.screen-window{
+  height: 50vh;
+  overflow: hidden;
+  padding: 0px;
+  border-bottom:2px solid #FFF;
+  transition: 2s ease;
+}
+.screen-window.active{
+  width: 95vw;
+  height: 100vw;
+
+}
+
+.screen-window.hidden{
+  height: 1px;
+}
+
+.screen-window:nth-child(even){
+  border-left: 2px solid #FFF;
+}
+
+.screen-header span{
+  float: right;
+  line-height: 4vh;
+  width: 4vh;
+  margin-top: 0.8vh;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 1.6em;
+}
+
+.main-window header{
+  line-height: 6vh;
+  padding-left: 15px;
+  font-weight: 800;
+  background-color: #000;
+  color: #FFF;
+}
+
+.screen-content{
+  overflow: hidden;
+}
+
+.screen-content header {
+  line-height: 25px;
+  font-weight: 600;
+  background: #FFF;
+  border-bottom: 4px solid;
+  color: #000;
+}
+
+.side-col.ptes {
+  width: 40%;
+  float: left;
+  border-right: 3px solid #000;
+  height: 44vh;
+  overflow: scroll;
+}
+
+.main-col.marchar {
+  width: 60%;
+  float: left;
+  height: 44vh;
+  overflow: scroll;
+}
+
+.screen-window.active .side-col.ptes, .screen-window.active .main-col.marchar{
+  height: 94vh;
+}
+
+.side-col tr.active td{
+  background-color: #81ab41 !important;
+}
+
+.main-col tr.active td{
+  background-color: #c12f2f !important;
+}
+
+/*
+ * Side Nav styles
+ */
+
+ .side-nav{
+   width: 5%;
+   float: left;
+   height: 100vh;
+   background-color: #000000;
+   box-shadow: 0px 0px 10px #000;
+ }
+.side-nav header{
+  line-height: 5vw;
+  border-left: 2px solid #FFF;
+}
+
+.clock{
+  text-align: center;
+  color: #FFF;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-right: 3px;
+}
+ .side-nav nav ul li{
+   height: 5vw;
+   list-style: none;
+   text-align: center;
+ }
+
+ .side-nav nav ul li button{
+   width: 100%;
+   font-size: 2.3em;
+   height: 5vw;
+   background: linear-gradient(to bottom, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+ }
+
+button#log-out{
+  background: linear-gradient(to bottom, #f3c5bd 0%,#e86c57 50%,#ea2803 51%,#ff6600 75%,#c72200 100%);
+  color: #FFF;
+
+ }
+
+button#marcar{
+  background: #000;
+  color: #FFF;
+  box-shadow: 0px 0px 17px #000;
+ }
+
+button#marcar .fa-bullhorn{
+  display: inline-block;
+ }
+ button#marcar .fa-close{
+   display: none;
+ }
+
+ button#marcar.marcar{
+   background: linear-gradient(to bottom, #9dd53a 0%,#a1d54f 50%,#80c217 51%,#7cbc0a 100%);
+   box-shadow: 0px 0px 17px #000;
+   border-color: #627d61;
+ }
+
+ button#marcar.borrar{
+   background: linear-gradient(to bottom, #f3c5bd 0%,#e86c57 50%,#ea2803 51%,#ff6600 75%,#c72200 100%);
+
+ }
+
+button#marcar.borrar .fa-bullhorn{
+  display: none;
+}
+
+button#marcar.borrar .fa-close{
+  display: inline-block;
+}
